@@ -1,0 +1,71 @@
+$main-color: #FFE600;
+$black: #333;
+$gray: #666;
+$gray-light: #999;
+$light: #EEE;
+$blue: #3483FA;
+
+// MELI CHALLENGE
+
+.navbar {
+  width: 100%;
+  background-color: $main-color;
+  // height: 50px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+
+  .logoLink{
+    display: flex;
+  }
+
+  form {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: 12px;
+    margin-right: 12px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+.searchbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  border: none;
+  font-size: 18px;
+  padding: 6px 6px 6px 15px;
+  margin-left: 25px;
+  outline: none;
+  border-radius: 2px 0 0 2px;
+
+  &::placeholder {
+    color: $gray-light;
+  }
+}
+
+.searchbutton {
+  background-color: $light;
+  color: $light;
+  width: 50px;
+  border: none;
+  margin-left: 0;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 2px 2px 0;
+
+  img {
+    width: 18px;
+    height: 18px;
+  }
+}
