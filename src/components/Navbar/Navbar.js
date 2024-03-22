@@ -15,9 +15,14 @@ const Navbar = (props) => {
 					className={styles["searchbar"]}
 					name="search"
 					defaultValue={props.defaultValue}
+					aria-label="Ingresa tu búsqueda"
 				/>
 
-				<button className={styles["searchbutton"]} type="submit">
+				<button
+					className={styles["searchbutton"]}
+					type="submit"
+					aria-label="Buscar"
+				>
 					<img src="/ic_Search@2x.png.png" alt="Search icon" />
 				</button>
 			</form>
