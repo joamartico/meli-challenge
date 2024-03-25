@@ -9,11 +9,9 @@ export default async function handler(req, res) {
 
 	try {
 		const apiResponse = await fetch(
-			`https://api.mercadolibre.com/sites/MLA/search?q=${query}`
+			`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`
 		);
 		const data = await apiResponse.json();
-
-		console.log('data', data)
 
 		// Extraer y formatear las categorías
 		const categories =
@@ -23,7 +21,7 @@ export default async function handler(req, res) {
 			[];
 
 		// Formatear los items
-		const items = data.results.slice(0, 4).map((item) => ({
+		const items = data.results.map((item) => ({
 			id: item.id,
 			title: item.title,
 			price: {
