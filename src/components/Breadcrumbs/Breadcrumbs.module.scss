@@ -1,0 +1,12 @@
+.breadcrumbsContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 16px auto;
+  display: flex;
+  flex-direction: row;
+  color: #999999;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

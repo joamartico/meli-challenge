@@ -1,8 +1,4 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar/Navbar";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Mercado Libre Argentina - Envíos Gratis en el día",
@@ -13,7 +9,12 @@ export const metadata = {
 export default function RootLayout(props) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body>
+				<link
+					href="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg"
+					rel="icon"
+					data-head-react="true"
+				/>
 				<main>{props.children}</main>
 			</body>
 		</html>

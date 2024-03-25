@@ -1,14 +1,15 @@
+import Head from "next/head";
+import Breadcrumbs from "../../../components/Breadcrumbs/Breadcrumbs";
+import Button from "../../../components/Button/Button";
 import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./page.module.scss";
 
 const ItemPage = async ({ params }) => {
 	const { id } = params;
 
-	const { item, author } = await fetch(
+	const { item } = await fetch(
 		`http://localhost:3000/api/items/${id}`
 	).then((res) => res.json());
-
-	console.log("item", item);
 
 	const categories = await fetch(
 		`https://api.mercadolibre.com/categories/${item.categoryId}`
@@ -18,19 +19,26 @@ const ItemPage = async ({ params }) => {
 		<>
 			<Navbar />
 
-			{/* {categories.path_from_root.map((category, index) => (
-					<span key={index}>
-						{category.name}
-						{index < categories.path_from_root.length - 1 && " > "}
-					</span>
-				))} */}
+			<Breadcrumbs
+				categories={categories.path_from_root.map(
+					(category) => category.name
+				)}
+			/>
 
 			<div className={styles["productContainer"]}>
 				<div className={styles["topContainer"]}>
 					<img src={item.picture} alt={item.title} />
 
 					<div className={styles["infoContainer"]}>
+						<p className={styles["condition"]}>
+							{item.condition === "new" ? "Nuevo" : "Usado"}
+							{item.sold_quantity
+								? ` - ${item.sold_quantity} vendidos`
+								: ""}
+						</p>
+
 						<h1>{item.title}</h1>
+
 						<p className={styles["price"]}>
 							${" "}
 							{parseInt(item.price.amount).toLocaleString(
@@ -38,7 +46,7 @@ const ItemPage = async ({ params }) => {
 							)}
 						</p>
 
-						<button>Comprar</button>
+						<Button>Comprar</Button>
 					</div>
 				</div>
 

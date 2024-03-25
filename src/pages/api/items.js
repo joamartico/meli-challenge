@@ -13,6 +13,8 @@ export default async function handler(req, res) {
 		);
 		const data = await apiResponse.json();
 
+		console.log('data', data)
+
 		// Extraer y formatear las categorías
 		const categories =
 			data.filters
