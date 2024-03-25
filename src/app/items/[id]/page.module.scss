@@ -38,8 +38,17 @@
       }
 
       .price {
-        padding-top: 32px;
+        margin-top: 32px;
         font-size: 46px;
+        text-wrap: nowrap;
+        position: relative;
+      }
+
+      .decimals {
+        font-size: 24px;
+        margin-left: 4px;
+        position: absolute;
+        top: 5px;
       }
     }
 

@@ -7,9 +7,9 @@ import styles from "./page.module.scss";
 const ItemPage = async ({ params }) => {
 	const { id } = params;
 
-	const { item } = await fetch(
-		`http://localhost:3000/api/items/${id}`
-	).then((res) => res.json());
+	const { item } = await fetch(`http://localhost:3000/api/items/${id}`).then(
+		(res) => res.json()
+	);
 
 	const categories = await fetch(
 		`https://api.mercadolibre.com/categories/${item.categoryId}`
@@ -44,6 +44,13 @@ const ItemPage = async ({ params }) => {
 							{parseInt(item.price.amount).toLocaleString(
 								"es-AR"
 							)}
+							<span className={styles["decimals"]}>
+								{item.price.decimals
+									? item.price.decimals
+											.toString()
+											.padEnd(2, "0")
+									: "00"}
+							</span>
 						</p>
 
 						<Button>Comprar</Button>
